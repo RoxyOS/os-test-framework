@@ -12,4 +12,3 @@ categories = ["no-std", "hardware-support"]
 [dependencies]
 spin = "0.10"
 owo-colors = "4.3"
-x86_64 = "0.15"
