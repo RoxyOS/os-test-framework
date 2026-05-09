@@ -51,6 +51,18 @@ fn kernel_entry() {
 }
 ```
 
+Forward panics from your OS to `os-test-framework`:
+
+```rust
+use core::panic::PanicInfo;
+
+#[cfg(test)]
+#[panic_handler]
+fn panic(info: &PanicInfo) -> ! {
+    os_test_framework::panic::handle_panic(info)
+}
+```
+
 ## Adding A Test
 
 You can declare tests like this:
