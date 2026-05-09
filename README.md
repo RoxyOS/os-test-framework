@@ -1,6 +1,7 @@
 # os-test-framework
 
 Test framework for embedded systems and OS kernels.
+`os-test-framework` requires `alloc`, so your kernel will need a `global-allocator`.
 
 ## Getting Started
 
