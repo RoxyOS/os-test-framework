@@ -6,7 +6,7 @@ macro_rules! test {
         #[test_case]
         #[allow(unused_imports)]
         fn _test() {
-            $crate::_run_test($name, $body);
+            $crate::_run_test($name, || $body);
         }
     };
 }
