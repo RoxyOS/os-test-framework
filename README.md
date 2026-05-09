@@ -10,6 +10,13 @@ First, enable `custom_test_frameworks`, set `test_runner` as the test runner fro
 #![feature(custom_test_frameworks)]
 #![reexport_test_harness_main = "test_main"]
 #![test_runner(os_test_framework::run_tests)]
+
+use core::fmt::Write;
+
+use os_test_framework::{
+    platform::{ExitState, Platform, init_platform},
+    test,
+};
 ```
 
 Implement `Platform`. The framework writes output through `core::fmt::Write` and finishes the run through `Platform::exit`:
@@ -49,6 +56,8 @@ fn kernel_entry() {
 You can declare tests like this:
 
 ```rust
+use os_test_framework::test;
+
 test! {
     "Hello" {
         assert!(true);
@@ -59,6 +68,8 @@ test! {
 You can add multiple tests in the same file:
 
 ```rust
+use os_test_framework::test;
+
 test! {
     "Hello" {
         assert!(true);
