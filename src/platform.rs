@@ -10,7 +10,11 @@ pub fn init_platform(platform: impl Platform + 'static) {
 }
 
 pub fn platform() -> &'static Mutex<Box<dyn Platform>> {
-    PLATFORM.get().unwrap()
+    try_platform().expect("os-test-framework platform not initialized")
+}
+
+pub fn try_platform() -> Option<&'static Mutex<Box<dyn Platform>>> {
+    PLATFORM.get()
 }
 
 pub enum ExitState {
