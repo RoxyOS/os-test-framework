@@ -24,7 +24,7 @@ pub fn run_tests(tests: &[&dyn Fn()]) -> ! {
 }
 
 pub fn _run_test(name: &str, func: impl FnOnce()) {
-    println!("{}", name);
+    print!("{}", name);
     func();
     println!(" {}", "OK".green().bold());
 }
