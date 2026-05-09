@@ -2,7 +2,8 @@
 #![test_runner(test_runner)]
 
 use core::panic;
-use std::{fmt::Write, process::exit};
+use core::fmt::Arguments;
+use std::process::exit;
 
 use os_test_framework::{
     platform::{ExitState, Platform, init_platform, platform},
@@ -12,18 +13,15 @@ use os_test_framework::{
 struct TestPlatform;
 
 impl Platform for TestPlatform {
+    fn print(&mut self, args: Arguments) {
+        print!("{args}");
+    }
+
     fn exit(&self, state: os_test_framework::platform::ExitState) -> ! {
         match state {
             ExitState::Success => panic!("Test shouldent succeed"),
             ExitState::Failed => exit(0),
         }
-    }
-}
-
-impl Write for TestPlatform {
-    fn write_str(&mut self, s: &str) -> std::fmt::Result {
-        print!("{s}");
-        Ok(())
     }
 }
 

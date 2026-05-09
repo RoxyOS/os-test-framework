@@ -2,7 +2,8 @@
 #![test_runner(test_runner)]
 #![allow(clippy::assertions_on_constants)]
 
-use std::{fmt::Write, panic, process::exit};
+use core::fmt::Arguments;
+use std::{panic, process::exit};
 
 use os_test_framework::{
     platform::{Platform, init_platform},
@@ -12,15 +13,12 @@ use os_test_framework::{
 struct TestPlatform;
 
 impl Platform for TestPlatform {
+    fn print(&mut self, args: Arguments) {
+        print!("{args}");
+    }
+
     fn exit(&self, _state: os_test_framework::platform::ExitState) -> ! {
         unreachable!()
-    }
-}
-
-impl Write for TestPlatform {
-    fn write_str(&mut self, s: &str) -> std::fmt::Result {
-        print!("{s}");
-        Ok(())
     }
 }
 

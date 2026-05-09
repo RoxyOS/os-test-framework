@@ -14,29 +14,26 @@ First, enable `custom_test_frameworks`, set `test_runner` as the test runner fro
 #![test_runner(os_test_framework::run_tests)]
 ```
 
-Implement `Platform`. The framework writes output through `core::fmt::Write` and finishes the run through `Platform::exit`:
+Implement `Platform`. The framework writes output through `Platform::print`
+and finishes the run through `Platform::exit`:
 
 ```rust
-use core::fmt::Write;
-
+use core::fmt::Arguments;
 use os_test_framework::platform::{ExitState, Platform};
 
 struct MyPlatform;
 
 impl Platform for MyPlatform {
+    fn print(&mut self, args: Arguments) {
+        let _ = args;
+        todo!()
+    }
+
     fn exit(&self, state: ExitState) -> ! {
         match state {
             ExitState::Success => todo!(),
             ExitState::Failed => todo!(),
         }
-    }
-}
-
-impl Write for MyPlatform {
-    fn write_str(&mut self, s: &str) -> core::fmt::Result {
-        // Write to serial, frame buffer, UART, etc.
-        let _ = s;
-        todo!()
     }
 }
 ```

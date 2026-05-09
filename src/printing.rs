@@ -15,5 +15,5 @@ macro_rules! println {
 
 #[doc(hidden)]
 pub fn _print(args: Arguments) {
-    platform().lock().write_fmt(args).unwrap();
+    platform().lock().print(args);
 }

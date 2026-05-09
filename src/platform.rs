@@ -1,4 +1,4 @@
-use core::fmt::Write;
+use core::fmt::Arguments;
 
 use alloc::boxed::Box;
 use spin::{Mutex, Once};
@@ -17,6 +17,8 @@ pub enum ExitState {
     Success,
     Failed,
 }
-pub trait Platform: Send + Sync + Write {
+
+pub trait Platform: Send + Sync {
+    fn print(&mut self, args: Arguments);
     fn exit(&self, state: ExitState) -> !;
 }
