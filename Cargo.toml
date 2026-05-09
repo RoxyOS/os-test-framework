@@ -1,0 +1,15 @@
+[package]
+name = "os-test-framework"
+version = "0.1.0"
+edition = "2024"
+description = "Test framework for embedded systems and OS kernels."
+repository = "https://github.com/RoxyOS/os-test-framework"
+license = "MIT"
+readme = "README.md"
+keywords = ["test", "embedded", "kernel", "osdev", "bearmetal"]
+categories = ["no-std", "hardware-support"]
+
+[dependencies]
+spin = "0.10"
+owo-colors = "4.3"
+x86_64 = "0.15"
