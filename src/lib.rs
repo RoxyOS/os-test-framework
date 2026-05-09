@@ -105,10 +105,16 @@ use crate::platform::{ExitState, platform};
 
 extern crate alloc;
 
-pub mod make_test;
 pub mod panic;
 pub mod platform;
-pub mod printing;
+#[doc(hidden)]
+pub mod __private {
+    pub use crate::_run_test;
+    pub use crate::printing::_print;
+}
+
+mod make_test;
+mod printing;
 
 pub fn run_tests(tests: &[&dyn Fn()]) -> ! {
     println!("\nRunning {} tests", tests.len().bold());
@@ -120,6 +126,7 @@ pub fn run_tests(tests: &[&dyn Fn()]) -> ! {
     platform().lock().exit(ExitState::Success);
 }
 
+#[doc(hidden)]
 pub fn _run_test(name: &str, func: impl FnOnce()) {
     print!("{}", name);
     func();

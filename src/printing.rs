@@ -4,7 +4,7 @@ use crate::platform::platform;
 
 #[macro_export]
 macro_rules! print {
-    ($($arg:tt)*) => ($crate::printing::_print(format_args!($($arg)*)));
+    ($($arg:tt)*) => ($crate::__private::_print(format_args!($($arg)*)));
 }
 
 #[macro_export]
