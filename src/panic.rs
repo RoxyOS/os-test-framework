@@ -8,8 +8,7 @@ use crate::{
     println,
 };
 
-#[panic_handler]
-fn handle_panic(panic_info: &PanicInfo) -> ! {
+pub fn handle_panic(panic_info: &PanicInfo) -> ! {
     interrupts::disable();
 
     println!(" {}", "Failed".bright_red().bold());
