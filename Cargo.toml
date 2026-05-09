@@ -1,6 +1,6 @@
 [package]
 name = "os-test-framework"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2024"
 description = "Test framework for embedded systems and OS kernels."
 repository = "https://github.com/RoxyOS/os-test-framework"
