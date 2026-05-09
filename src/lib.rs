@@ -1,10 +1,8 @@
 #![no_std]
 
-use alloc::boxed::Box;
 use owo_colors::OwoColorize;
-use spin::{Mutex, Once};
 
-use crate::platform::{ExitState, Platform, platform};
+use crate::platform::{ExitState, platform};
 
 extern crate alloc;
 
