@@ -6,7 +6,7 @@ description = "Test framework for embedded systems and OS kernels."
 repository = "https://github.com/RoxyOS/os-test-framework"
 license = "MIT"
 readme = "README.md"
-keywords = ["test", "embedded", "kernel", "osdev", "bearmetal"]
+keywords = ["test", "embedded", "kernel", "os", "bearmetal"]
 categories = ["no-std", "hardware-support"]
 
 [dependencies]
