@@ -6,8 +6,7 @@ use core::fmt::Arguments;
 use std::{panic, process::exit};
 
 use os_test_framework::{
-    platform::{Platform, init_platform},
-    test,
+    test, {Platform, init_platform},
 };
 
 struct TestPlatform;
@@ -17,7 +16,7 @@ impl Platform for TestPlatform {
         print!("{args}");
     }
 
-    fn exit(&self, _state: os_test_framework::platform::ExitState) -> ! {
+    fn exit(&self, _state: os_test_framework::ExitState) -> ! {
         unreachable!()
     }
 }

@@ -1,13 +1,12 @@
 #![feature(custom_test_frameworks)]
 #![test_runner(test_runner)]
 
-use core::panic;
 use core::fmt::Arguments;
+use core::panic;
 use std::process::exit;
 
 use os_test_framework::{
-    platform::{ExitState, Platform, init_platform, platform},
-    test,
+    test, {ExitState, Platform, init_platform, platform},
 };
 
 struct TestPlatform;
@@ -17,7 +16,7 @@ impl Platform for TestPlatform {
         print!("{args}");
     }
 
-    fn exit(&self, state: os_test_framework::platform::ExitState) -> ! {
+    fn exit(&self, state: os_test_framework::ExitState) -> ! {
         match state {
             ExitState::Success => panic!("Test shouldent succeed"),
             ExitState::Failed => exit(0),

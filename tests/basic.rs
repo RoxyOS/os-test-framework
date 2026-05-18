@@ -5,10 +5,7 @@
 use core::fmt::Arguments;
 use std::process::exit;
 
-use os_test_framework::{
-    platform::{ExitState, Platform, init_platform},
-    test,
-};
+use os_test_framework::{ExitState, Platform, init_platform, test};
 
 struct TestPlatform;
 
@@ -17,7 +14,7 @@ impl Platform for TestPlatform {
         print!("{args}");
     }
 
-    fn exit(&self, state: os_test_framework::platform::ExitState) -> ! {
+    fn exit(&self, state: os_test_framework::ExitState) -> ! {
         match state {
             ExitState::Success => exit(0),
             ExitState::Failed => panic!("Test shouldn't fail"),

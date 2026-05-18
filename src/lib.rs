@@ -98,17 +98,17 @@
 
 use owo_colors::OwoColorize;
 
-use crate::platform::{ExitState, platform};
-
 extern crate alloc;
 
-pub mod panic;
-pub mod platform;
+mod panic;
+mod platform;
 #[doc(hidden)]
 pub mod __private {
     pub use crate::_run_test;
     pub use crate::printing::_print;
 }
+
+pub use crate::{panic::*, platform::*};
 
 mod make_test;
 mod printing;
