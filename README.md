@@ -19,7 +19,7 @@ and finishes the run through `Platform::exit`:
 
 ```rust
 use core::fmt::Arguments;
-use os_test_framework::platform::{ExitState, Platform};
+use os_test_framework::{ExitState, Platform};
 
 struct MyPlatform;
 
@@ -41,7 +41,7 @@ impl Platform for MyPlatform {
 Call `init_platform` with your `Platform`, and `test_main` from your kernel entry point:
 
 ```rust
-use os_test_framework::platform::init_platform;
+use os_test_framework::init_platform;
 
 fn kernel_entry() {
     init_platform(MyPlatform);

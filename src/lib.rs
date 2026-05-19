@@ -20,7 +20,7 @@
 //!
 //! ```rust,ignore
 //! use core::fmt::Arguments;
-//! use os_test_framework::platform::{ExitState, Platform};
+//! use os_test_framework::{ExitState, Platform};
 //!
 //! struct MyPlatform;
 //!
@@ -43,7 +43,7 @@
 //! entry point:
 //!
 //! ```rust,ignore
-//! use os_test_framework::platform::init_platform;
+//! use os_test_framework::init_platform;
 //!
 //! fn kernel_entry() {
 //!     init_platform(MyPlatform);
