@@ -23,6 +23,7 @@ pub fn handle_panic(panic_info: &PanicInfo) -> ! {
 #[macro_export]
 macro_rules! forward_panic {
     () => {
+        #[cfg(test)]
         #[panic_handler]
         fn _os_test_framework_panic_handler(panic_info: &core::panic::PanicInfo) -> ! {
             $crate::handle_panic(panic_info);
