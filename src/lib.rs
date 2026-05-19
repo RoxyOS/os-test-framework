@@ -54,13 +54,7 @@
 //! Forward panics from your OS to `os-test-framework`:
 //!
 //! ```rust,ignore
-//! use core::panic::PanicInfo;
-//!
-//! #[cfg(test)]
-//! #[panic_handler]
-//! fn panic(info: &PanicInfo) -> ! {
-//!     os_test_framework::panic::handle_panic(info)
-//! }
+//! os_test_framework::forward_panic!();
 //! ```
 //!
 //! ## Adding A Test
