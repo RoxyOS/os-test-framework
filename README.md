@@ -62,10 +62,9 @@ You can declare tests like this:
 ```rust
 use os_test_framework::test;
 
-test! {
-    "Hello" {
-        assert!(true);
-    }
+test!(hello);
+fn hello() {
+    assert!(true);
 }
 ```
 
@@ -74,15 +73,13 @@ You can add multiple tests in the same file:
 ```rust
 use os_test_framework::test;
 
-test! {
-    "Hello" {
-        assert!(true);
-    }
+test!(hello);
+fn hello() {
+    assert!(true);
 }
 
-test! {
-    "Hello2" {
-        assert!(true);
-    }
+test!(hello2);
+fn hello2() {
+    assert!(true);
 }
 ```
