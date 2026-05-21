@@ -9,8 +9,8 @@ pub fn handle_panic(panic_info: &PanicInfo) -> ! {
         let mut platform = platform.lock();
         platform.print(format_args!(
             " {}\n\n{}\n",
-            "Failed".bright_red().bold(),
-            panic_info.message().red()
+            "FAILED".bright_red(),
+            panic_info.message()
         ));
         platform.exit(ExitState::Failed)
     }
