@@ -108,18 +108,28 @@ mod make_test;
 mod printing;
 
 pub fn run_tests(tests: &[&dyn Fn()]) -> ! {
-    println!("\nRunning {} tests", tests.len().bold());
+    let test_count = tests.len();
+
+    println!("\nrunning {} tests", test_count);
 
     for test in tests {
         test()
     }
+
+    println!();
+    println!(
+        "test result: {}. {} passed; 0 failed",
+        "ok".green(),
+        test_count
+    );
+    println!();
 
     platform().lock().exit(ExitState::Success);
 }
 
 #[doc(hidden)]
 pub fn _run_test(name: &str, func: fn()) {
-    print!("{}", name);
+    print!("test {} ...", name);
     func();
-    println!(" {}", "OK".green().bold());
+    println!(" {}", "ok".green());
 }
