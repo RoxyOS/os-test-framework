@@ -2,7 +2,7 @@ use core::panic::PanicInfo;
 
 use owo_colors::OwoColorize;
 
-use crate::platform::{self, ExitState, try_platform};
+use crate::platform::{ExitState, try_platform};
 
 pub fn handle_panic(panic_info: &PanicInfo) -> ! {
     if let Some(platform) = try_platform() {
