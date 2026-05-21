@@ -6,7 +6,7 @@ macro_rules! test {
         #[test_case]
         #[allow(unused_imports)]
         fn _test() {
-            $crate::__private::_run_test(stringify!($func), $func);
+            $crate::__private::_run_test(core::any::type_name_of_val(&$func), $func);
         }
     };
 }
