@@ -29,9 +29,8 @@ fn test_runner(tests: &[&dyn Fn()]) {
     os_test_framework::run_tests(tests);
 }
 
-test! {
-    "Platform exit" {
-        println!();
-        platform().lock().exit(ExitState::Failed)
-    }
+test!(platform_exit);
+fn platform_exit() {
+    println!();
+    platform().lock().exit(ExitState::Failed)
 }

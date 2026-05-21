@@ -118,7 +118,7 @@ pub fn run_tests(tests: &[&dyn Fn()]) -> ! {
 }
 
 #[doc(hidden)]
-pub fn _run_test(name: &str, func: impl FnOnce()) {
+pub fn _run_test(name: &str, func: fn()) {
     print!("{}", name);
     func();
     println!(" {}", "OK".green().bold());

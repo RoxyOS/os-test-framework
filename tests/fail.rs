@@ -32,8 +32,7 @@ fn test_runner(tests: &[&dyn Fn()]) {
     os_test_framework::run_tests(tests);
 }
 
-test! {
-    "Should fail" {
-        assert!(false);
-    }
+test!(should_fail);
+fn should_fail() {
+    assert!(false)
 }

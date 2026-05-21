@@ -27,20 +27,12 @@ fn test_runner(tests: &[&dyn Fn()]) {
     os_test_framework::run_tests(tests);
 }
 
-test! {
-    "Test" {
-        assert!(true);
-    }
+test!(test1);
+fn test1() {
+    assert!(true);
 }
 
-test! {
-    "Test 2" {
-        assert!(true);
-    }
-}
-
-test! {
-    "Test 3" {
-        assert!(true);
-    }
+test!(test2);
+fn test2() {
+    assert!(true);
 }
